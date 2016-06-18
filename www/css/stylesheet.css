@@ -1,0 +1,56 @@
+#logoutbtn {
+  color: white;
+}
+
+#xbutton {
+  color : #aaa;
+}
+
+body {
+  background-image: url(../img/background.png);
+}
+
+/** {
+  border-radius: 0 !important;
+}*/
+
+.becentered {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+}
+
+.card {
+  background-color: white ;
+  border-radius: 20px;
+  padding: 30px;
+  border: 2px solid #212120;
+}
+
+#reward-header {
+    text-align: center;
+    color: #212120;
+    padding: 20px 0 0 0;
+}
+
+.glyphicon-star-empty, .glyphicon-star {
+  width: 20%;
+  font-size: 60px;
+  text-align : center;
+}
+
+.glyphicon-star {
+    color: #E6B749;
+}
+
+.glyphicon-star-empty {
+    color: #212120;
+}
+
+.large-font {
+  font-size :2em;
+  text-align: center;
+  color : #212120;
+}
