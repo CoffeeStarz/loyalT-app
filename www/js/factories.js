@@ -7,21 +7,23 @@ angular.module('coffeeCard.factories', [])
     return response.data;
   }
 
+  var authUrl = 'http://192.168.3.229:1337/auth';
+
   AuthFactory.sendLogin = function (loginInfo) {
-    return $http.post('/auth/login', loginInfo)
+    return $http.post(authUrl + '/login', loginInfo)
       .catch(function () {
         $log.error = "Invalid login credentials";
       });
   };
 
   AuthFactory.isLoggedIn = function () {
-    return $http.get('/auth/me')
+    return $http.get(authUrl + '/me')
       .then(resToData)
       .catch($log.error);
   };
 
   AuthFactory.logout = function () {
-    return $http.delete('/auth/logout')
+    return $http.delete(authUrl + '/logout')
       .then(resToData)
       .catch($log.error);
   };
@@ -34,7 +36,7 @@ angular.module('coffeeCard.factories', [])
     angular.extend(this, props);
   }
 
-  Card.url = '/api/cards/';
+  Card.url = 'http://192.168.3.229:1337/api/cards/';
 
   function resToData(res) {
     return res.data;
