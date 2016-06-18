@@ -5,15 +5,14 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <!-- <base href='/'/> -->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="css/bootstrap-dark.css" rel="stylesheet" />
     <link href="css/stylesheet.css" rel="stylesheet" />
-    <link href="js/common/contenteditable.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="js/rewardButton/rewardButton.css" />
+    <link href="css/contenteditable.css" rel="stylesheet"/>
+    <link href="css/rewardButton.css" rel="stylesheet"  />
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -26,23 +25,13 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js" defer></script>
-
-    <script src="/js/login/login.state.js" defer></script>
-    <script src="/js/login/login.controller.js" defer></script>
-    <script src="/js/login/auth.factory.js" defer></script>
-    <script src="/js/phoneNumber/phoneNumber.state.js" defer></script>
-    <script src="/js/phoneNumber/phoneNumber.controller.js" defer></script>
-    <script src="js/common/contenteditable.directive.js" defer></script>
-    <script src="/js/card/card.state.js" defer></script>
-    <script src="/js/card/card.controller.js" defer></script>
-    <script src="/js/card/card.factory.js" defer></script>
-    <script src="/js/rewardButton/rewardButton.directive.js" defer></script>
-    <script src="/js/rewardButton/reward.factory.js" defer></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/directives.js"></script>
 
   </head>
   <body ng-app="coffeeCard" class="platform-ios platform-cordova platform-webview">
-
-    <ui-view></ui-view>
+      <ui-view></ui-view>
   </body>
 </html>
