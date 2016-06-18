@@ -1,9 +1,9 @@
-coffeeCard.config(function ($stateProvider) {
+// coffeeCard.config(function ($stateProvider) {
 
-    $stateProvider.state('login', {
-        url: '/login',
-        templateUrl: '/js/login/login.html',
-        controller: 'LoginCtrl'
-    });
+//     $stateProvider.state('login', {
+//         url: '/login',
+//         templateUrl: '/js/login/login.html',
+//         controller: 'LoginCtrl'
+//     });
 
-});
+// });
