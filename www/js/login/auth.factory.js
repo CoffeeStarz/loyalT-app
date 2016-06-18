@@ -9,9 +9,6 @@ coffeeCard.factory('AuthFactory', function($http, $state, $log) {
 
     AuthFactory.sendLogin = function(loginInfo) {
         return $http.post('/auth/login', loginInfo)
-        .then(function() {
-            $state.go('phoneState');
-        })
         .catch(function(){
             $log.error = "Invalid login credentials";
         })

@@ -8,7 +8,10 @@ coffeeCard.config(function ($stateProvider) {
         resolve : {
         	user : function(AuthFactory) {
         		return AuthFactory.isLoggedIn();
-        	}
+        	},
+            rewards: function(RewardFactory) {
+                return RewardFactory.getAll();
+            }
         }
     });
 });
