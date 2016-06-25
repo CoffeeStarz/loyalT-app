@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var coffeeCard = angular.module('coffeeCard', ['ionic']);
+angular.module('coffeeCard', ['ionic', 'coffeeCard.controllers', 'coffeeCard.factories', 'coffeeCard.directives'])
 
-coffeeCard.run(function ($rootScope, $ionicPlatform) {
+.run(function ($rootScope, $ionicPlatform) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
     console.error('Error transitioning from "' + fromState.name + '" to "' + toState.name + '":', error);
   });
@@ -24,10 +24,25 @@ coffeeCard.run(function ($rootScope, $ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
-});
+})
 
-coffeeCard.config(function ($urlRouterProvider, $locationProvider) {
-  // $locationProvider.html5Mode(true);
+.config(function ($urlRouterProvider, $stateProvider) {
+  $stateProvider
+
+  .state('phone', {
+    url: '/phone',
+    // abstract: true,
+    templateUrl: 'templates/phone.html',
+    controller: 'PhoneCtrl',
+    resolve: {
+      user: function (AuthFactory) {
+        return AuthFactory.isLoggedIn();
+      },
+      rewards: function (RewardFactory) {
+        return RewardFactory.getAll();
+      }
+    }
+  });
 
   // when there is an empty route, redirect to /index
   $urlRouterProvider.when('', '/phone');

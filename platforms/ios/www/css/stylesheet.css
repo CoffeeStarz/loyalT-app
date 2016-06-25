@@ -8,23 +8,20 @@
 
 body {
   background-image: url(../img/background.png);
+  background-size: cover;
 }
-
-/** {
-  border-radius: 0 !important;
-}*/
 
 .becentered {
   position: absolute;
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%);
-  width: 50%;
 }
 
 .card {
   background-color: white ;
   border-radius: 20px;
+  height:auto;
   padding: 30px;
   border: 2px solid #212120;
 }
@@ -37,7 +34,7 @@ body {
 
 .glyphicon-star-empty, .glyphicon-star {
   width: 20%;
-  font-size: 60px;
+  font-size: 5.5vw;
   text-align : center;
 }
 
@@ -50,7 +47,7 @@ body {
 }
 
 .large-font {
-  font-size :2em;
+  font-size : 3vw;
   text-align: center;
   color : #212120;
 }
