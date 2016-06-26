@@ -1,6 +1,4 @@
-#logoutbtn {
-  color: white;
-}
+
 
 #xbutton {
   color : #aaa;
@@ -50,4 +48,9 @@ body {
   font-size : 3vw;
   text-align: center;
   color : #212120;
+}
+
+#name {
+    line-height: 1.4em;
+    border-bottom: 1px solid #212120;
 }

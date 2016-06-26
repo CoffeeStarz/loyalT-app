@@ -1,36 +1,5 @@
 angular.module('coffeeCard.factories', [])
 
-.factory('AuthFactory', function ($http, $state, $log) {
-  var AuthFactory = {};
-
-  function resToData(response) {
-    return response.data;
-  }
-
-  var authUrl = 'http://192.168.3.229:1337/auth';
-
-  AuthFactory.sendLogin = function (loginInfo) {
-    return $http.post(authUrl + '/login', loginInfo)
-      .catch(function () {
-        $log.error = "Invalid login credentials";
-      });
-  };
-
-  AuthFactory.isLoggedIn = function () {
-    return $http.get(authUrl + '/me')
-      .then(resToData)
-      .catch($log.error);
-  };
-
-  AuthFactory.logout = function () {
-    return $http.delete(authUrl + '/logout')
-      .then(resToData)
-      .catch($log.error);
-  };
-
-  return AuthFactory;
-})
-
 .factory('CardFactory', function ($http) {
   function Card(props) {
     angular.extend(this, props);
