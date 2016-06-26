@@ -35,4 +35,9 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
   }).then(function (modal) {
     $scope.cardModal = modal;
   });
+
+  $scope.$on('modal.hidden', function() {
+    $scope.phoneNumber = null;
+  });
+
 });

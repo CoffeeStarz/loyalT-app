@@ -18,7 +18,7 @@ angular.module('coffeeCard.factories', [])
   Card.prototype.updateDrinks = function(num) {
     this.numDrinks = this.numDrinks === num ? this.numDrinks-1 : num;
     this.numDrinks = this.numDrinks < 0 ? 0 : this.numDrinks;
-    this.save();  
+    this.save();
   };
 
   Card.findOrCreate = function (phoneNumber) {
@@ -55,13 +55,13 @@ angular.module('coffeeCard.factories', [])
   var rewards = [{
     name: "Black Card",
     rewardNumber: 10,
-    icon: "../img/coffeecup.svg",
-    color: "white"
+    icon: "ion-coffee",
+    color: "#212120"
   }, {
     name: "Platinum Card",
     rewardNumber: 15,
-    icon: "../img/coffeecup.svg",
-    color: "platinum"
+    icon: "ion-coffee",
+    color: "#E6B749"
   }];
 
   RewardFactory.getAll = function () {

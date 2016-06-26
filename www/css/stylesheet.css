@@ -16,6 +16,15 @@ body {
   transform: translate(-50%,-50%);
 }
 
+/*.icon {
+    width: inherit;
+    height: inherit;
+}
+
+.icon:before {
+    font-size: 5.5vw;
+}*/
+
 .card {
   background-color: white ;
   border-radius: 20px;
@@ -32,7 +41,7 @@ body {
 
 .glyphicon-star-empty, .glyphicon-star {
   width: 20%;
-  font-size: 5.5vw;
+  font-size: 10vw;
   text-align : center;
 }
 
@@ -45,7 +54,7 @@ body {
 }
 
 .large-font {
-  font-size : 3vw;
+  font-size : 6vw;
   text-align: center;
   color : #212120;
 }
