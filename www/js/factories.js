@@ -1,6 +1,6 @@
 angular.module('coffeeCard.factories', [])
 
-.factory('CardFactory', function ($http) {
+.factory('CardFactory', function ($http, $log) {
   function Card(props) {
     angular.extend(this, props);
   }
@@ -11,23 +11,39 @@ angular.module('coffeeCard.factories', [])
     return res.data;
   }
 
-  function getCard(res) {
-    var data = resToData(res);
-    var card = new Card(Array.isArray(data) ? data[0] : data);
-    return card;
+  function getCard(data) {
+    return new Card(data);
   }
 
-  Card.prototype.getUrl = function () {
-    return Card.url + this.id;
+  Card.prototype.updateDrinks = function(num) {
+    this.numDrinks = this.numDrinks === num ? this.numDrinks-1 : num;
+    this.numDrinks = this.numDrinks < 0 ? 0 : this.numDrinks;
+    this.save();  
   };
 
   Card.findOrCreate = function (phoneNumber) {
-    return $http.get(Card.url + phoneNumber).then(getCard);
+    return db.get(phoneNumber + '')
+      .then(getCard)
+      .catch(function (err) {
+        console.log(err);
+        if (err.status === 404) {
+          var card = new Card({
+            _id: phoneNumber + '',
+            name: '',
+            numDrinks: 1
+        });
+          return db.put(card)
+          .then(function(){
+              return card;
+          });
+        } else {
+          $log.error(err);
+        }
+    });
   };
 
   Card.prototype.save = function () {
-    return $http.put(this.getUrl(), this)
-      .then(getCard);
+      return db.put(this).catch($log.error);
   };
 
   return Card;

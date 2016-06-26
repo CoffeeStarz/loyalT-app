@@ -10,15 +10,6 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
         $scope.cardModal.show();
       })
       .then(function () {
-        $scope.updateDrinks = function (num) {
-          $scope.card.drinksNumber = num;
-          $scope.card.save()
-            .then(function (card) {
-              $scope.card = card;
-            })
-            .catch($log.error);
-        };
-
         $scope.hasName = function(){
             return !!$scope.card.name;
         };
@@ -29,6 +20,7 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
         };
       });
   };
+
   $scope.rewards = rewards;
 
   $scope.getNumber = function (number) {
