@@ -1,11 +1,12 @@
 var coffeeCard = angular.module('coffeeCard.controllers', [])
 
-.controller('PhoneCtrl', function ($scope, $state, $ionicModal, CardFactory, rewards, $log) {
+.controller('PhoneCtrl', function ($scope, $state, $ionicModal, CardFactory, rewards, $log, $timeout) {
 
   //Card functionnality
   $scope.submit = function (phoneNumber) {
     CardFactory.findOrCreate(phoneNumber)
       .then(function (card) {
+        $timeout(function(){card.updateDrinks(1)}, 500)
         $scope.card = card;
         $scope.cardModal.show();
       })

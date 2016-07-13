@@ -5,7 +5,7 @@
     <p class="large-font" ng-show="hasName()" id="name" ng-click="card.name = ''">{{card.name}}</p>
     <br>
 	<div>
-		<div ng-class="{'glyphicon-star': $index < card.numDrinks, 'glyphicon-star-empty' : $index >= card.numDrinks}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon" ng-click="card.updateDrinks($index+1)"></div>
+		<div ng-class="{'glyphicon-star': $index < card.numDrinks, 'glyphicon-star-empty' : $index >= card.numDrinks}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon"></div>
 	</div>
 	<div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="reward-header">

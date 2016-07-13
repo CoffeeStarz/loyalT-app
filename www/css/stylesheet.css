@@ -16,6 +16,10 @@ body {
   transform: translate(-50%,-50%);
 }
 
+#form_id {
+    width: 90%;
+}
+
 /*.icon {
     width: inherit;
     height: inherit;

@@ -16,8 +16,8 @@ angular.module('coffeeCard.factories', [])
   }
 
   Card.prototype.updateDrinks = function(num) {
-    this.numDrinks = this.numDrinks === num ? this.numDrinks-1 : num;
-    this.numDrinks = this.numDrinks < 0 ? 0 : this.numDrinks;
+    if(num) this.numDrinks = this.numDrinks + num;
+    else if (this.numDrinks < 15) this.numDrinks++;
     this.save();
   };
 
