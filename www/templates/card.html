@@ -1,13 +1,16 @@
 <div class="col-lg-6 col-md-6 col-sm-10 col-xs-10 container becentered card">
-    <p contenteditable ng-model="card.name" placeholder="What is your name ?" class="large-font"></p>
+    <form ng-submit="changeName(newName)" ng-show="!hasName()">
+        <input ng-model="newName" placeholder="What is your name?" class="input-group col-lg-12 col-md-12 col-sm-12 col-xs-12"></input>
+    </form>
+    <p class="large-font" ng-show="hasName()" id="name" ng-click="card.name = ''">{{card.name}}</p>
     <br>
 	<div>
-		<div ng-class="{'glyphicon-star': $index < card.drinksNumber, 'glyphicon-star-empty' : $index >= card.drinksNumber}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon" ng-click="updateDrinks($index+1)"></div>
+		<div ng-class="{'glyphicon-star': $index < card.numDrinks, 'glyphicon-star-empty' : $index >= card.numDrinks}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon" ng-click="card.updateDrinks($index+1)"></div>
 	</div>
 	<div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="reward-header">
 			<p class="large-font">Available Rewards</p>
 		</div>
-        <reward-button ng-repeat="reward in rewards" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" update="updateDrinks" card="card" reward-num={{reward.rewardNumber}} icon={{reward.icon}} color={{reward.color}}></reward-button>
+        <reward-button ng-repeat="reward in rewards" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" update="card.updateDrinks" card="card" reward-num={{reward.rewardNumber}} icon={{reward.icon}} color={{reward.color}}></reward-button>
 	</div>
 </div>

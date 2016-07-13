@@ -1,37 +1,6 @@
 angular.module('coffeeCard.factories', [])
 
-.factory('AuthFactory', function ($http, $state, $log) {
-  var AuthFactory = {};
-
-  function resToData(response) {
-    return response.data;
-  }
-
-  var authUrl = 'http://192.168.3.229:1337/auth';
-
-  AuthFactory.sendLogin = function (loginInfo) {
-    return $http.post(authUrl + '/login', loginInfo)
-      .catch(function () {
-        $log.error = "Invalid login credentials";
-      });
-  };
-
-  AuthFactory.isLoggedIn = function () {
-    return $http.get(authUrl + '/me')
-      .then(resToData)
-      .catch($log.error);
-  };
-
-  AuthFactory.logout = function () {
-    return $http.delete(authUrl + '/logout')
-      .then(resToData)
-      .catch($log.error);
-  };
-
-  return AuthFactory;
-})
-
-.factory('CardFactory', function ($http) {
+.factory('CardFactory', function ($http, $log) {
   function Card(props) {
     angular.extend(this, props);
   }
@@ -42,23 +11,39 @@ angular.module('coffeeCard.factories', [])
     return res.data;
   }
 
-  function getCard(res) {
-    var data = resToData(res);
-    var card = new Card(Array.isArray(data) ? data[0] : data);
-    return card;
+  function getCard(data) {
+    return new Card(data);
   }
 
-  Card.prototype.getUrl = function () {
-    return Card.url + this.id;
+  Card.prototype.updateDrinks = function(num) {
+    this.numDrinks = this.numDrinks === num ? this.numDrinks-1 : num;
+    this.numDrinks = this.numDrinks < 0 ? 0 : this.numDrinks;
+    this.save();
   };
 
   Card.findOrCreate = function (phoneNumber) {
-    return $http.get(Card.url + phoneNumber).then(getCard);
+    return db.get(phoneNumber + '')
+      .then(getCard)
+      .catch(function (err) {
+        console.log(err);
+        if (err.status === 404) {
+          var card = new Card({
+            _id: phoneNumber + '',
+            name: '',
+            numDrinks: 1
+        });
+          return db.put(card)
+          .then(function(){
+              return card;
+          });
+        } else {
+          $log.error(err);
+        }
+    });
   };
 
   Card.prototype.save = function () {
-    return $http.put(this.getUrl(), this)
-      .then(getCard);
+      return db.put(this).catch($log.error);
   };
 
   return Card;
@@ -70,13 +55,13 @@ angular.module('coffeeCard.factories', [])
   var rewards = [{
     name: "Black Card",
     rewardNumber: 10,
-    icon: "../img/coffeecup.svg",
-    color: "white"
+    icon: "ion-coffee",
+    color: "#212120"
   }, {
     name: "Platinum Card",
     rewardNumber: 15,
-    icon: "../img/coffeecup.svg",
-    color: "platinum"
+    icon: "ion-coffee",
+    color: "#E6B749"
   }];
 
   RewardFactory.getAll = function () {

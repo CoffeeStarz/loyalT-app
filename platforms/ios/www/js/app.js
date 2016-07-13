@@ -1,9 +1,11 @@
 // Ionic Starter App
 
+var db = new PouchDB('cards');
+
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('coffeeCard', ['ionic', 'coffeeCard.controllers', 'coffeeCard.factories', 'coffeeCard.directives'])
+angular.module('coffeeCard', ['ionic', 'coffeeCard.controllers', 'coffeeCard.factories', 'coffeeCard.directives'])//, 'content-editable'])
 
 .run(function ($rootScope, $ionicPlatform) {
   $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
@@ -35,9 +37,9 @@ angular.module('coffeeCard', ['ionic', 'coffeeCard.controllers', 'coffeeCard.fac
     templateUrl: 'templates/phone.html',
     controller: 'PhoneCtrl',
     resolve: {
-      user: function (AuthFactory) {
-        return AuthFactory.isLoggedIn();
-      },
+    //   user: function (AuthFactory) {
+    //     return AuthFactory.isLoggedIn();
+    //   },
       rewards: function (RewardFactory) {
         return RewardFactory.getAll();
       }
