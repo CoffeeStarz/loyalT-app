@@ -30,7 +30,7 @@ angular.module('coffeeCard.factories', [])
           var card = new Card({
             _id: phoneNumber + '',
             name: '',
-            numDrinks: 1
+            numDrinks: 0
         });
           return db.put(card)
           .then(function(){
