@@ -4,7 +4,7 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
 
   //Card functionnality
   $scope.submit = function (phoneNumber, numOrders) {
-    CardFactory.findOrCreate(phoneNumber)
+    return CardFactory.findOrCreate(phoneNumber)
       .then(function (card) {
         $timeout(function(){card.updateDrinks(numOrders)}, 500)
         $scope.card = card;
@@ -19,10 +19,12 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
             $scope.card.name = newName;
             $scope.card.save();
         };
-      });
+      })
+      .catch(console.error);
   };
 
   $scope.numOrders = 1;
+  $scope.newName = 'Your Preferred Name?';
 
   $scope.addDrink = function () {
     $scope.numOrders ++;
@@ -44,6 +46,10 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
     return new Array(number);
   };
 
+  $scope.removeModal = function() {
+    $scope.cardModal.hide();
+  };
+
   $ionicModal.fromTemplateUrl('templates/card.html', {
     scope: $scope,
     animation: 'slide-in-up',
@@ -56,6 +62,7 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
   $scope.$on('modal.hidden', function() {
     $scope.phoneNumber = null;
     $scope.numOrders = 1;
+    $scope.newName = 'Your Preferred Name?'
   });
 
 });

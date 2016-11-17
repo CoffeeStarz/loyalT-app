@@ -1,6 +1,6 @@
 // Ionic Starter App
 
-var db = new PouchDB('cards', {auto_compaction: true});
+var db = new PouchDB('cards', {auto_compaction: true})
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)

@@ -78,10 +78,14 @@ body {
   text-align: center;
 }
 
-.submit-order > h2 {
+.submit-order > h3 {
   margin-bottom: 0px;
 }
 
 .submit-order-div {
   margin-top: 15px;
+}
+
+.close-window {
+  text-align: center;
 }
