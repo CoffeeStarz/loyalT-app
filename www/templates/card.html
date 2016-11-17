@@ -1,6 +1,6 @@
 <div class="col-lg-6 col-md-6 col-sm-10 col-xs-10 container becentered card">
     <form ng-submit="changeName(newName)" ng-show="!hasName()">
-        <input ng-model="newName" placeholder="What is your name?" class="input-group col-lg-12 col-md-12 col-sm-12 col-xs-12"></input>
+        <input ng-model="newName" placeholder="Your Preferred Name?" class="input-group col-lg-12 col-md-12 col-sm-12 col-xs-12"></input>
     </form>
     <p class="large-font" ng-show="hasName()" id="name" ng-click="card.name = ''">{{card.name}}</p>
     <br>

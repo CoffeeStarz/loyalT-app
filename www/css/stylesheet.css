@@ -54,7 +54,7 @@ body {
 }
 
 .glyphicon-star-empty {
-    color: #212120;
+    color: #8C8C84;
 }
 
 .large-font {
@@ -66,4 +66,22 @@ body {
 #name {
     line-height: 1.4em;
     border-bottom: 1px solid #212120;
+}
+
+.num-orders {
+  display: inline;
+  width: 11%;
+  height: 37px;
+}
+
+.redemption {
+  text-align: center;
+}
+
+.submit-order > h2 {
+  margin-bottom: 0px;
+}
+
+.submit-order-div {
+  margin-top: 15px;
 }

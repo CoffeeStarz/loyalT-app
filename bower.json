@@ -6,5 +6,8 @@
   },
   "dependencies": {
     "pouchdb": "^5.4.4"
+  },
+  "resolutions": {
+    "pouchdb": "^5.4.4"
   }
 }
