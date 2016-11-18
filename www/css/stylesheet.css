@@ -43,17 +43,21 @@ body {
     padding: 20px 0 0 0;
 }
 
-.glyphicon-star-empty, .glyphicon-star {
+.icon {
+  display: inline-block;
+}
+
+.ion-android-star-outline, .ion-android-star {
   width: 20%;
   font-size: 10vw;
   text-align : center;
 }
 
-.glyphicon-star {
+.ion-android-star {
     color: #E6B749;
 }
 
-.glyphicon-star-empty {
+.ion-android-star-outline {
     color: #8C8C84;
 }
 

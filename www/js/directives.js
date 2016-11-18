@@ -14,8 +14,8 @@ angular.module('coffeeCard.directives', [])
         link: function(scope) {
             scope.claim = function() {
                 let card = scope.card;
-                let rewardNum = scope.rewardNum;
-                scope.update.call(card, card._id, -rewardNum);
+                let rewardNum = -1*scope.rewardNum;
+                card.updateDrinks(rewardNum);
             };
         }
     };

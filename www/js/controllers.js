@@ -55,7 +55,8 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
   };
 
   $scope.removeModal = function() {
-    return $scope.cardModal.remove()
+    console.log('should work');
+    return $scope.cardModal.remove();
   };
 
   $scope.$on('modal.hidden', function() {

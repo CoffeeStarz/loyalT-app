@@ -5,7 +5,7 @@
     <p class="large-font" ng-show="hasName()" id="name" ng-click="card.name = ''">{{card.name}}</p>
     <br>
 	<div>
-		<div ng-class="{'glyphicon-star': $index < card.numDrinks, 'glyphicon-star-empty' : $index >= card.numDrinks}" ng-repeat="i in getNumber(15) track by $index" class="glyphicon"></div>
+		<div ng-class="{'ion-android-star': $index < card.numDrinks, 'ion-android-star-outline' : $index >= card.numDrinks}" ng-repeat="i in getNumber(15) track by $index" class="icon"></div>
 	</div>
 	<div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="reward-header">
@@ -13,7 +13,7 @@
 		</div>
         <reward-button ng-repeat="reward in rewards" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" update="submit" card="card" reward-num={{reward.rewardNumber}} icon={{reward.icon}} color={{reward.color}}></reward-button>
 	</div>
-  <div class="close-window">
-    <button type="button" class="btn btn-default" ng-click="removeModal()">Close Window</button>
+  <div class="close-window" ng-click="removeModal()">
+    <button type="button" class="btn btn-default">Close Window</button>
   </div>
 </div>
