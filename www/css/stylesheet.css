@@ -68,6 +68,15 @@ body {
     border-bottom: 1px solid #212120;
 }
 
+.input-group-lg > input {
+  font-size: 25px !important;
+  border-radius: 4px !important;
+}
+
+.input-group-lg {
+  width: 100%;
+}
+
 .num-orders {
   display: inline !important;
   padding: 0;
@@ -78,6 +87,10 @@ body {
 
 .redemption {
   text-align: center;
+}
+
+.redemption > input {
+  font-size: 20px;
 }
 
 .submit-order > h3 {
