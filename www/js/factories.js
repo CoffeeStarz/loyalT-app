@@ -34,7 +34,6 @@ angular.module('coffeeCard.factories', [])
         });
           return db.put(card)
           .then(function(){
-            console.log('dafuh')
               return card;
           });
         } else {

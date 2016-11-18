@@ -8,6 +8,15 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
       .then(function (card) {
         $timeout(function(){card.updateDrinks(numOrders)}, 500)
         $scope.card = card;
+        return $ionicModal.fromTemplateUrl('templates/card.html', {
+          scope: $scope,
+          animation: 'slide-in-up',
+          backdropClickToClose: true,
+          hardwareBackButtonClose: true
+        })
+      })
+      .then(function (modal) {
+        $scope.cardModal = modal;
         $scope.cardModal.show();
       })
       .then(function () {
@@ -16,6 +25,7 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
         };
 
         $scope.changeName = function(newName) {
+            $scope.newName = null;
             $scope.card.name = newName;
             $scope.card.save();
         };
@@ -24,11 +34,10 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
   };
 
   $scope.numOrders = 1;
-  $scope.newName = 'Your Preferred Name?';
+  $scope.newName = null;
 
   $scope.addDrink = function () {
     $scope.numOrders ++;
-    console.log('adding a drink, now have: ', $scope.numOrders , " orders")
   }
 
   $scope.removeDrink = function () {
@@ -37,7 +46,6 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
     } else {
       $scope.numOrders = 1;
     }
-    console.log('removing a drink, now have: ', $scope.numOrders , " orders")
   }
 
   $scope.rewards = rewards;
@@ -47,22 +55,13 @@ var coffeeCard = angular.module('coffeeCard.controllers', [])
   };
 
   $scope.removeModal = function() {
-    $scope.cardModal.hide();
+    return $scope.cardModal.remove()
   };
-
-  $ionicModal.fromTemplateUrl('templates/card.html', {
-    scope: $scope,
-    animation: 'slide-in-up',
-    backdropClickToClose: true,
-    hardwareBackButtonClose: true
-  }).then(function (modal) {
-    $scope.cardModal = modal;
-  });
 
   $scope.$on('modal.hidden', function() {
     $scope.phoneNumber = null;
     $scope.numOrders = 1;
-    $scope.newName = 'Your Preferred Name?'
+    $scope.newName = null;
   });
 
 });

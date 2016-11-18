@@ -9,10 +9,10 @@
       </div>
       <div class="redemption">
         <button type="button" class="btn btn-default" ng-click="removeDrink()"><span class="glyphicon glyphicon-minus"></span></button>
-        <input class="form-control num-orders" type="num" ng-model="numOrders" placeholder="1" value={{numOrders}}>
+        <input class="form-control num-orders" type="number" ng-model="numOrders" placeholder="1">
         <button type="button" class="btn btn-default" ng-click="addDrink()"><span class="glyphicon glyphicon-plus"></span></button>
         <div class="submit-order-div">
-           <button ng-click="submit(phoneNumber, numOrders)" class="btn btn-primary submit-order"><h3>Submit Order</h3></button>
+           <button type="button" ng-click="submit(phoneNumber, numOrders)" class="btn btn-primary submit-order"><h3>Submit Order</h3></button>
         </div>
       </div>
   </form>

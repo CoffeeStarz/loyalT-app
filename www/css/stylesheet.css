@@ -69,7 +69,9 @@ body {
 }
 
 .num-orders {
-  display: inline;
+  display: inline !important;
+  padding: 0;
+  text-align: center;
   width: 11%;
   height: 37px;
 }
