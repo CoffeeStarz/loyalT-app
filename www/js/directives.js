@@ -13,10 +13,9 @@ angular.module('coffeeCard.directives', [])
         },
         link: function(scope) {
             scope.claim = function() {
-                console.log("here!");
-                var card = scope.card;
-                var rewardNum = scope.rewardNum;
-                scope.update.call(card, -rewardNum);
+                let card = scope.card;
+                let rewardNum = -1*scope.rewardNum;
+                card.updateDrinks(rewardNum);
             };
         }
     };

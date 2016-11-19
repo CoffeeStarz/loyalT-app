@@ -1,3 +1,21 @@
+LoyalT Coffee Rewards Card App
+=====================
+
+A loyalty rewards program for our favorite coffee cart in NYC financial district, Esprezzatura.
+
+For every 10 coffees you buy, you can redeem a reward for one free drip coffee. For every 15 you buy, you can redeem a reward for a specialty drink (red-eye, PSL etc.). 
+
+
+## For Developers
+
+After cloning the repo and `cd loyalT-app`, run `npm install`. If you don't have ionic, cordova, gulp, bower etc, `npm install -g ionic cordova, gulp, bower`.
+
+Once you've `npm install`ed your required dependencies, you should run `ionic platform <PLATFORM>` where `<PLATFORM>` is ios or android. 
+
+To run the code in the browser, you can run the command `ionic serve`. If you have a device connected, you can run `ionic build <PLATFORM>` and then `ionic run <PLATFORM>`. If you don't have Android Studio & Oracle JDK or XCODE, you may run into some issues.
+
+Below you'll find the README.md that comes with Ionic boilerplate app.
+
 Ionic App Base
 =====================
 

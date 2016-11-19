@@ -43,18 +43,22 @@ body {
     padding: 20px 0 0 0;
 }
 
-.glyphicon-star-empty, .glyphicon-star {
+.icon {
+  display: inline-block;
+}
+
+.ion-android-star-outline, .ion-android-star {
   width: 20%;
   font-size: 10vw;
   text-align : center;
 }
 
-.glyphicon-star {
+.ion-android-star {
     color: #E6B749;
 }
 
-.glyphicon-star-empty {
-    color: #212120;
+.ion-android-star-outline {
+    color: #8C8C84;
 }
 
 .large-font {
@@ -66,4 +70,41 @@ body {
 #name {
     line-height: 1.4em;
     border-bottom: 1px solid #212120;
+}
+
+.input-group-lg > input {
+  font-size: 25px !important;
+  border-radius: 4px !important;
+}
+
+.input-group-lg {
+  width: 100%;
+}
+
+.num-orders {
+  display: inline !important;
+  padding: 0;
+  text-align: center;
+  width: 11%;
+  height: 37px;
+}
+
+.redemption {
+  text-align: center;
+}
+
+.redemption > input {
+  font-size: 20px;
+}
+
+.submit-order > h3 {
+  margin-bottom: 0px;
+}
+
+.submit-order-div {
+  margin-top: 15px;
+}
+
+.close-window {
+  text-align: center;
 }

@@ -1,8 +1,20 @@
-<form ng-submit="submit(phoneNumber)" id="form_id" name="phoneForm" class="becentered">
-    <div id="form" class="form-group" >
-        <div class="input-group input-group-lg">
-            <input type="tel" class="form-control" placeholder="Enter your phone number" ng-model="phoneNumber">
-            <span ng-click="submit(phoneNumber)" class="input-group-addon glyphicon glyphicon-phone"></span>
+<div>
+
+  <form ng-submit="submit(phoneNumber, numOrders)" id="form_id" name="phoneForm" class="becentered">
+      <div id="form" class="form-group" >
+          <div class="input-group input-group-lg">
+              <input type="tel" class="form-control" id="phone-input" placeholder="Enter your phone number" ng-model="phoneNumber">
+             <!--  <span ng-click="submit(phoneNumber, numOrders)" class="input-group-addon glyphicon glyphicon-phone"></span> -->
+          </div>
+      </div>
+      <div class="redemption">
+        <button type="button" class="btn btn-default" ng-click="removeDrink()"><span class="glyphicon glyphicon-minus"></span></button>
+        <input class="form-control num-orders" type="number" ng-model="numOrders" placeholder="1">
+        <button type="button" class="btn btn-default" ng-click="addDrink()"><span class="glyphicon glyphicon-plus"></span></button>
+        <div class="submit-order-div">
+           <button type="button" ng-click="submit(phoneNumber, numOrders)" class="btn btn-primary submit-order"><h3>Submit Order</h3></button>
         </div>
-    </div>
-</form>
+      </div>
+  </form>
+
+</div>
